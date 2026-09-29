@@ -92,9 +92,9 @@ function Hero() {
           <div className="social-row" aria-label="Social links">
             <span>Find me online</span>
             <i />
-            <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubIcon /></a>
+            <a href="https://github.com/mdfaiz903" target="_blank" rel="noreferrer" aria-label="Mohammad Faiz on GitHub"><GitHubIcon /></a>
             <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInIcon /></a>
-            <a href="#contact" aria-label="Email"><Mail size={18} /></a>
+            <a href="mailto:mdfaiz.nub@gmail.com" aria-label="Email Mohammad Faiz"><Mail size={18} /></a>
           </div>
         </motion.div>
 
@@ -257,7 +257,11 @@ function Contact() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const subject = encodeURIComponent(`Portfolio enquiry from ${data.get('name')}`)
+    const body = encodeURIComponent(`${data.get('message')}\n\nFrom: ${data.get('name')}\nEmail: ${data.get('email')}`)
     setSent(true)
+    window.location.href = `mailto:mdfaiz.nub@gmail.com?subject=${subject}&body=${body}`
   }
 
   return (
@@ -269,9 +273,9 @@ function Contact() {
           <h2>Let&apos;s build something <span className="gradient-text">meaningful together.</span></h2>
           <p>Have a product idea, an ERP challenge, or a role that feels like a strong fit? I&apos;d be glad to hear about it.</p>
           <div className="contact-list">
-            <a href="#contact-form"><span><Mail size={19} /></span><div><small>Email</small><strong>Send a message</strong></div><ArrowRight size={17} /></a>
-            <div><span><Phone size={19} /></span><div><small>Phone</small><strong>Available on request</strong></div></div>
-            <a href="https://github.com/" target="_blank" rel="noreferrer"><span><GitHubIcon size={19} /></span><div><small>GitHub</small><strong>View profile</strong></div><ArrowRight size={17} /></a>
+            <a href="mailto:mdfaiz.nub@gmail.com"><span><Mail size={19} /></span><div><small>Email</small><strong>mdfaiz.nub@gmail.com</strong></div><ArrowRight size={17} /></a>
+            <a href="tel:+8801309889903"><span><Phone size={19} /></span><div><small>Phone</small><strong>01309 889903</strong></div><ArrowRight size={17} /></a>
+            <a href="https://github.com/mdfaiz903" target="_blank" rel="noreferrer"><span><GitHubIcon size={19} /></span><div><small>GitHub</small><strong>@mdfaiz903</strong></div><ArrowRight size={17} /></a>
             <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span><LinkedInIcon size={19} /></span><div><small>LinkedIn</small><strong>Let&apos;s connect</strong></div><ArrowRight size={17} /></a>
           </div>
         </motion.div>
@@ -284,7 +288,7 @@ function Contact() {
           <label htmlFor="message">How can I help?</label>
           <textarea id="message" name="message" placeholder="Tell me a little about the opportunity or project..." rows="5" required />
           <button className="button primary" type="submit">{sent ? 'Message noted — thank you' : 'Send message'} {sent ? <Check size={18} /> : <Send size={18} />}</button>
-          {sent && <p className="form-note" role="status">This demo form is ready to connect to your preferred email service.</p>}
+          {sent && <p className="form-note" role="status">Your email app should open with the message ready to send.</p>}
         </motion.form>
       </div>
     </section>
