@@ -7,6 +7,7 @@ import {
   Check,
   ChevronRight,
   Download,
+  ExternalLink,
   GraduationCap,
   Mail,
   MapPin,
@@ -16,7 +17,7 @@ import {
   Sparkles,
   X,
 } from 'lucide-react'
-import { achievements, navItems, projects, services, skillGroups, strengths } from './data.js'
+import { achievements, navItems, projects, projectScreenshots, services, skillGroups, strengths } from './data.js'
 
 function GitHubIcon({ size = 18 }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .7A11.5 11.5 0 0 0 8.36 23c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.29-5.27-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.99 10.99 0 0 1 12 6.01c.98 0 1.95.13 2.86.38 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.71 5.4-5.29 5.69.42.36.79 1.07.79 2.16v3.24c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z" /></svg>
@@ -250,8 +251,14 @@ function Projects() {
           {projects.map((project, index) => {
             const Icon = project.icon
             return (
-              <motion.article className={`project-card ${project.accent}`} key={project.title} {...reveal} transition={{ ...reveal.transition, delay: index * 0.08 }}>
-                <div className="project-top"><span>{project.index}</span><div className="project-icon"><Icon size={23} /></div></div>
+              <motion.article className={`project-card ${project.accent} ${project.featured ? 'featured' : ''}`} key={project.title} {...reveal} transition={{ ...reveal.transition, delay: index * 0.08 }}>
+                <div className="project-top">
+                  <span>{project.index}</span>
+                  <div className="project-top-actions">
+                    {project.url && <a className="project-source-link" href={project.url} target="_blank" rel="noreferrer">View on GitHub <ExternalLink size={14} /></a>}
+                    <div className="project-icon"><Icon size={23} /></div>
+                  </div>
+                </div>
                 <div>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
@@ -261,6 +268,25 @@ function Projects() {
             )
           })}
         </div>
+        <motion.div className="project-gallery" {...reveal}>
+          <div className="gallery-heading">
+            <div>
+              <span>Project gallery</span>
+              <h3>Inside Class Routine Management</h3>
+              <p>Dashboard insights, conflict-aware routine generation, and day-to-day schedule management.</p>
+            </div>
+            <a href="https://github.com/mdfaiz903/Class-Routine-Management" target="_blank" rel="noreferrer">Explore the repository <ExternalLink size={15} /></a>
+          </div>
+          <div className="gallery-grid">
+            {projectScreenshots.map((screenshot, index) => (
+              <a className={`gallery-item gallery-item-${index + 1}`} href={screenshot.src} target="_blank" rel="noreferrer" key={screenshot.src}>
+                <img src={screenshot.src} alt={`${screenshot.title} screen from Class Routine Management`} loading="lazy" />
+                <span className="gallery-overlay"><strong>{screenshot.title}</strong><small>{screenshot.description}</small></span>
+                <span className="gallery-open" aria-hidden="true"><ExternalLink size={15} /></span>
+              </a>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

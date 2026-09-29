@@ -2,6 +2,7 @@ import {
   BarChart3,
   Braces,
   Boxes,
+  CalendarDays,
   Code2,
   Database,
   FileCode2,
@@ -84,6 +85,16 @@ export const services = [
 export const projects = [
   {
     index: '01',
+    icon: CalendarDays,
+    title: 'Class Routine Management',
+    description: 'A full-stack smart class management system with role-based access, automatic routine generation, attendance tracking, change requests, and PDF or Excel exports.',
+    technologies: ['Django REST Framework', 'React', 'JWT', 'SQLite'],
+    accent: 'violet',
+    featured: true,
+    url: 'https://github.com/mdfaiz903/Class-Routine-Management',
+  },
+  {
+    index: '02',
     icon: Boxes,
     title: 'Enterprise ERP for RMG Manufacturing',
     description: 'A comprehensive ERP solution for garment manufacturing with inventory management, quality assurance, production workflows, and real-time analytics.',
@@ -91,7 +102,7 @@ export const projects = [
     accent: 'cyan',
   },
   {
-    index: '02',
+    index: '03',
     icon: Workflow,
     title: 'E-commerce Website',
     description: 'A responsive e-commerce platform with product management, authentication, and seamless order processing.',
@@ -99,7 +110,7 @@ export const projects = [
     accent: 'violet',
   },
   {
-    index: '03',
+    index: '04',
     icon: Braces,
     title: 'Recipe Sharing Website',
     description: 'A recipe management platform with user interaction, categorized recipes, and community rating features.',
@@ -107,11 +118,29 @@ export const projects = [
     accent: 'amber',
   },
   {
-    index: '04',
+    index: '05',
     icon: Layers3,
     title: 'Social Networking Website',
     description: 'A social platform with secure authentication, posts, comments, profiles, and password management.',
     technologies: ['Django', 'JavaScript', 'HTML', 'CSS'],
     accent: 'rose',
+  },
+]
+
+export const projectScreenshots = [
+  {
+    src: '/projects/class-routine/dashboard.png',
+    title: 'Admin dashboard',
+    description: 'Live operational totals and teacher attendance reporting.',
+  },
+  {
+    src: '/projects/class-routine/routine-generator.png',
+    title: 'Automatic routine generator',
+    description: 'Conflict-aware class placement with an editable preview.',
+  },
+  {
+    src: '/projects/class-routine/routines.png',
+    title: 'Routine management',
+    description: 'A central view for schedules, rooms, teachers, and exports.',
   },
 ]
