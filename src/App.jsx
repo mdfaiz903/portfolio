@@ -106,7 +106,7 @@ function Hero() {
             <div className="portrait-shade" />
             <div className="portrait-caption">
               <span className="caption-icon"><BriefcaseBusiness size={17} /></span>
-              <span><small>Current role</small><strong>Jr. Software Engineer</strong></span>
+              <span><small>Current role</small><strong>Software Engineer</strong></span>
             </div>
           </div>
           <motion.div className="floating-card card-code" animate={{ y: [0, -9, 0] }} transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut' }}>
