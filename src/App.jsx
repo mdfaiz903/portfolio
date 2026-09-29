@@ -16,7 +16,7 @@ import {
   Sparkles,
   X,
 } from 'lucide-react'
-import { achievements, navItems, projects, skillGroups, strengths } from './data.js'
+import { achievements, navItems, projects, services, skillGroups, strengths } from './data.js'
 
 function GitHubIcon({ size = 18 }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .7A11.5 11.5 0 0 0 8.36 23c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.29-5.27-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.99 10.99 0 0 1 12 6.01c.98 0 1.95.13 2.86.38 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.71 5.4-5.29 5.69.42.36.79 1.07.79 2.16v3.24c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z" /></svg>
@@ -208,6 +208,39 @@ function Skills() {
   )
 }
 
+function Services() {
+  return (
+    <section id="services" className="section services-section">
+      <div className="services-glow" aria-hidden="true" />
+      <div className="container">
+        <div className="services-intro">
+          <SectionHeading eyebrow="Services" title={<>Expert help for your <span className="gradient-text">next business solution.</span></>} copy="Available for freelance projects and remote collaboration, from focused fixes to complete product development." />
+          <motion.div className="services-availability" {...reveal}>
+            <span><i />Open to freelance &amp; remote work</span>
+            <a href="#contact">Discuss your project <ArrowRight size={16} /></a>
+          </motion.div>
+        </div>
+        <div className="services-grid">
+          {services.map((service, index) => {
+            const Icon = service.icon
+            return (
+              <motion.article className="service-card" key={service.title} {...reveal} transition={{ ...reveal.transition, delay: index * 0.06 }}>
+                <div className="service-card-top">
+                  <span className="service-icon"><Icon size={22} /></span>
+                  <span className="service-number">{service.number}</span>
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <div className="service-tags">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              </motion.article>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Projects() {
   return (
     <section id="projects" className="section projects-section">
@@ -308,6 +341,7 @@ function App() {
         <About />
         <Experience />
         <Skills />
+        <Services />
         <Projects />
         <Education />
         <Contact />

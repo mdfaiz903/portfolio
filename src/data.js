@@ -1,14 +1,19 @@
 import {
+  BarChart3,
   Braces,
   Boxes,
   Code2,
   Database,
+  FileCode2,
+  FileText,
   GitBranch,
   Layers3,
+  PlugZap,
+  Settings2,
   Workflow,
 } from 'lucide-react'
 
-export const navItems = ['About', 'Experience', 'Skills', 'Projects', 'Education', 'Contact']
+export const navItems = ['About', 'Experience', 'Skills', 'Services', 'Projects', 'Education', 'Contact']
 
 export const strengths = [
   { number: '01', title: 'Problem solving', copy: 'Turning complex business needs into practical, dependable systems.' },
@@ -29,6 +34,51 @@ export const skillGroups = [
   { icon: Database, title: 'Databases', skills: ['MariaDB', 'MySQL', 'SQLite'] },
   { icon: Braces, title: 'Tools', skills: ['Git', 'GitHub', 'Docker', 'Linux', 'VS Code'] },
   { icon: GitBranch, title: 'Development Practices', skills: ['Agile Development', 'Scrum', 'Code Review', 'Test Driven Development'] },
+]
+
+export const services = [
+  {
+    icon: Settings2,
+    number: '01',
+    title: 'Frappe & ERPNext Customization',
+    description: 'Custom DocTypes, modules, workflows, permissions, client scripts, and business logic tailored to your operations.',
+    tags: ['Frappe', 'ERPNext', 'Python'],
+  },
+  {
+    icon: FileText,
+    number: '02',
+    title: 'Print Formats & Documents',
+    description: 'Professional invoices, quotations, challans, payslips, labels, and other pixel-accurate PDF documents.',
+    tags: ['Jinja', 'HTML/CSS', 'PDF'],
+  },
+  {
+    icon: BarChart3,
+    number: '03',
+    title: 'Reports & Dashboards',
+    description: 'Query reports, script reports, dashboards, KPIs, and data views that turn business records into clear decisions.',
+    tags: ['SQL', 'Analytics', 'Charts'],
+  },
+  {
+    icon: FileCode2,
+    number: '04',
+    title: 'Django Web Applications',
+    description: 'Secure, scalable web applications and backends with authentication, admin tools, and clean, maintainable APIs.',
+    tags: ['Django', 'DRF', 'JavaScript'],
+  },
+  {
+    icon: PlugZap,
+    number: '05',
+    title: 'API & System Integration',
+    description: 'REST API development, third-party integrations, payment services, and reliable data synchronization between systems.',
+    tags: ['REST API', 'Integration', 'Automation'],
+  },
+  {
+    icon: Workflow,
+    number: '06',
+    title: 'Automation, Fixes & Support',
+    description: 'Workflow automation, bug fixing, performance improvements, data migration, deployment, and ongoing remote support.',
+    tags: ['Docker', 'Linux', 'Support'],
+  },
 ]
 
 export const projects = [
